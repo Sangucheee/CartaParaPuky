@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Puky 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fff8cc, #ffeccf);
+      font-family: 'Special Elite', monospace;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.6); /* más transparente */
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e6a600;
+      font-size: 2.5em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .decor {
+      text-align: center;
+      font-size: 1.5em;
+      color: #d4aa00;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease-in-out;
+      animation-fill-mode: both;
+      opacity: 0;
+    }
+
+    .firma {
+      text-align: right;
+      margin-top: 40px;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {transform: translateY(20px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    p:nth-of-type(1) { animation-delay: 0.5s; }
+    p:nth-of-type(2) { animation-delay: 1s; }
+    p:nth-of-type(3) { animation-delay: 1.5s; }
+    p:nth-of-type(4) { animation-delay: 2s; }
+    p:nth-of-type(5) { animation-delay: 2.5s; }
+    p:nth-of-type(6) { animation-delay: 3s; }
+    p:nth-of-type(7) { animation-delay: 3.5s; }
+
+    .floating {
+      position: fixed;
+      font-size: 1.2em;
+      color: #d4aa00;
+      font-style: italic;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from {transform: translateY(100vh);}
+      to {transform: translateY(-10vh);}
+    }
+
+    .floating1 { left: 10%; animation-delay: 0s; }
+    .floating2 { left: 30%; animation-delay: 3s; }
+    .floating3 { left: 60%; animation-delay: 6s; }
+    .floating4 { left: 80%; animation-delay: 9s; }
+
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+
+    #stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<!-- Frases flotantes -->
+<div class="floating floating1">Eres especial, aunque no lo diga seguido ✨</div>
+<div class="floating floating2">Lo siento con el corazón abierto 💛</div>
+<div class="floating floating3">Gracias por lo que fuiste y sos 🌼</div>
+<div class="floating floating4">No quiero perder tu confianza 🍯</div>
+
+<!-- Carta -->
+<div class="container">
+  <h1>💌 Para Puky</h1>
+  <div class="decor">⋆｡°✩ A letter from the heart ✩°｡⋆</div>
+
+  <p>Hola Puky,</p>
+  <p>
+    Sé que este mensaje tal vez llegue en un momento incómodo, pero necesito decirte lo que siento desde el corazón...
+  </p>
+  <p>
+    Me equivoqué. Usé una palabra que no debí, en medio de tantas opiniones cruzadas. Decirte "hipócrita" fue injusto, y me duele haberlo hecho.
+  </p>
+  <p>
+    No fue con mala intención, ni para herirte. Me dejé llevar, y lo lamento profundamente. Me importa cómo te sentís, me importa tu confianza, y me duele que ahora eso esté en duda.
+  </p>
+  <p>
+    Puky, desde que te conocí, tu presencia se volvió importante para mí. Tenés una forma de ser única, divertida, empática... y aunque no siempre lo diga, yo lo valoro muchísimo.
+  </p>
+  <p>
+    No quiero perder eso. No quiero que esto nos aleje. Te aprecio con el corazón, y ojalá algún día puedas perdonarme del todo. Estoy dispuesto a remendar las cosas con acciones, no solo palabras.
+  </p>
+  <p>
+    Gracias por todo lo que me diste con tu amistad, por cada sonrisa que me arrancaste, por estar. Ojalá esto no sea un adiós, sino un nuevo comienzo. Porque yo todavía creo en nosotros, incluso como amigos.
+  </p>
+  <p class="firma">
+    Con cariño y respeto,<br />
+    Nico 🫂
+  </p>
+</div>
+
+<!-- Música de fondo -->
+<audio controls autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/16/audio_2cfe0a6d85.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML 😢
+</audio>
+
+<!-- Partículas -->
+<script>
+  const canvas = document.getElementById("stars");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let stars = [];
+  for(let i = 0; i < 100; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      d: Math.random() * 1
+    });
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffe680";
+    for(let i = 0; i < stars.length; i++) {
+      let s = stars[i];
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+      ctx.fill();
+    }
+    moveStars();
+  }
+
+  function moveStars() {
+    for(let i = 0; i < stars.length; i++) {
+      stars[i].y += stars[i].d;
+      if(stars[i].y > canvas.height) {
+        stars[i].y = 0;
+        stars[i].x = Math.random() * canvas.width;
+      }
+    }
+  }
+
+  setInterval(drawStars, 50);
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
